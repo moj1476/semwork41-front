@@ -1,0 +1,45 @@
+.adminWrapper { background-color: var(--bg-black); color: var(--text-white); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; min-height: 100vh; padding: 40px; }
+.adminContainer { display: flex; gap: 40px; max-width: 1400px; margin: 0 auto; background-color: var(--bg-container); border-radius: 20px; border: 1px solid var(--border-color); overflow: hidden; }
+
+/* --- Sidebar --- */
+.sidebar { width: 280px; background-color: var(--bg-element); padding: 30px 0; flex-shrink: 0; border-right: 1px solid var(--border-color); }
+.adminProfile { display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 0 30px 30px; border-bottom: 1px solid var(--border-color); }
+.avatar { width: 80px; height: 80px; border-radius: 50%; background-color: var(--primary-yellow); color: var(--bg-black); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: bold; }
+.adminName { font-size: 20px; font-weight: 600; }
+.nav ul { list-style: none; padding: 0; margin: 20px 0 0; }
+.navButton { display: flex; align-items: center; gap: 15px; width: 100%; padding: 15px 30px; background: none; border: none; color: var(--text-grey); font-size: 16px; text-align: left; cursor: pointer; transition: background-color 0.2s, color 0.2s; border-left: 3px solid transparent; }
+.navButton:hover { background-color: rgba(255, 255, 255, 0.05); color: var(--text-white); }
+.navButton.active { color: var(--text-white); font-weight: 600; background-color: rgba(232, 197, 71, 0.1); border-left-color: var(--primary-yellow); }
+.navIcon { width: 24px; height: 24px; }
+
+/* --- Content Area --- */
+.content { flex-grow: 1; padding: 40px; }
+.tabHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.tabContent h2 { font-size: 28px; margin: 0; font-weight: 600; }
+
+/* --- Таблицы --- */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+.table th { color: var(--text-grey); font-size: 14px; text-transform: uppercase; }
+.table tbody tr:hover { background-color: var(--bg-element); }
+
+/* --- Кнопки действий --- */
+.actionButton { background-color: var(--primary-blue); color: var(--text-white); border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.2s; }
+.actionButton:hover { background-color: #1A35D1; }
+.editButton, .deleteButton { background: none; border: none; cursor: pointer; font-size: 14px; padding: 5px; }
+.editButton { color: var(--primary-blue); }
+.deleteButton { color: var(--delete-red); margin-left: 10px; }
+
+/* --- Статусы заказов --- */
+.statusSelect {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    outline: none;
+}
+.statusSelect.completed { color: var(--status-completed); border-color: var(--status-completed); }
+.statusSelect.processing { color: var(--status-processing); border-color: var(--status-processing); }
+.statusSelect.shipped { color: var(--status-shipped); border-color: var(--status-shipped); }
+.statusSelect option { background-color: var(--bg-element); color: var(--text-white); }

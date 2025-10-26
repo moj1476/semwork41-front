@@ -1,0 +1,276 @@
+.accountWrapper {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.accountContainer {
+    display: flex;
+    gap: 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--bg-container);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-element);
+    padding: 30px 0;
+    flex-shrink: 0;
+    border-right: 1px solid var(--border-color);
+}
+
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 30px 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.userName {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 15px 30px;
+    background: none;
+    border: none;
+    color: var(--text-grey);
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.navButton:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-white);
+}
+
+.navButton.active {
+    color: var(--text-white);
+    font-weight: 600;
+    background-color: rgba(41, 69, 255, 0.1);
+    border-left-color: var(--primary-blue);
+}
+
+.navIcon {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- Content Area --- */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.tabContent h2 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.tabContent > p {
+    color: var(--text-grey);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+/* --- Forms --- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 500px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-grey);
+}
+
+.input {
+    background-color: #2C2C2C;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: var(--text-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(41, 69, 255, 0.3);
+}
+
+.submitButton {
+    background-color: var(--primary-blue);
+    color: var(--text-white);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+.submitButton:hover {
+    background-color: #1A35D1;
+}
+
+/* --- Cards & Addresses --- */
+.cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-element);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.cardDefault {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--primary-yellow);
+    background-color: rgba(232, 197, 71, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.cardAction, .orderDetails {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.addressTitle {
+    font-weight: bold;
+    margin: 0;
+}
+
+.addressDetails {
+    color: var(--text-grey);
+    margin: 4px 0 0;
+}
+
+.addButton {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 1px dashed var(--primary-blue);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    align-self: flex-start;
+}
+
+.addButton:hover {
+    background-color: rgba(41, 69, 255, 0.1);
+    color: var(--text-white);
+}
+
+/* --- Order History --- */
+.orderList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.orderItem {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--bg-element);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.orderId {
+    font-weight: bold;
+}
+
+.orderDate {
+    font-size: 14px;
+    color: var(--text-grey);
+    margin-left: 15px;
+}
+
+.orderStatus {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.orderStatus[data-status="completed"] {
+    color: var(--status-completed);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+.orderStatus[data-status="processing"] {
+    color: var(--status-processing);
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.orderTotal {
+    font-weight: bold;
+    font-size: 16px;
+}

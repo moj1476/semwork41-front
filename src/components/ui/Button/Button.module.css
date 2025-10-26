@@ -1,0 +1,20 @@
+.button {
+    display: flex;
+    color: #ffedb0;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    background-image: linear-gradient(0.543turn, rgba(3, 49, 214, 1) 67%, rgba(42, 89, 255, 1) 94%);
+    border-color: #0331d6;
+    border-style: solid;
+    transition: background-color 0.2s
+    ease-in-out, color 0.2s
+    ease-in-out, border-color 0.2s
+    ease-in-out;
+}
+
+.none {
+
+}
