@@ -2,7 +2,8 @@ import React from 'react'
 import styles from './MainPage.module.css';
 import ArrowIcon from "../../assets/arrow.svg?react"
 import PcImg from "../../assets/pc.png"
-import AuthModal from "../../components/AuthModal/AuthModal.jsx";
+import {RoutesPath} from "../../const/const.js";
+import {useNavigate} from "react-router-dom";
 
 const MainPage = () => {
     const features = [
@@ -10,6 +11,8 @@ const MainPage = () => {
         'Комплектующие без "серых" схем',
         'Честная гарантия 2 года',
     ];
+
+    const navigate = useNavigate();
 
     return (
         <div className={styles.wrapper}>
@@ -31,10 +34,10 @@ const MainPage = () => {
                             Хотите мощный компьютер без тормозов на ближайшие 3-5 лет? Соберём для вас конфигурацию, где каждая деталь идеально сочетается и правильно настроена.
                         </p>
                         <div className={styles.actions}>
-                            <a href="#" className={`${styles.button} ${styles.mainButton}`}>
+                            <a onClick={() => navigate(RoutesPath.builder)} className={`${styles.button} ${styles.mainButton}`}>
                                 Подобрать ПК сейчас
                             </a>
-                            <a href="#" className={styles.arrowButton}>
+                            <a onClick={() => navigate(RoutesPath.builder)} className={styles.arrowButton}>
                                 <ArrowIcon />
                             </a>
                         </div>

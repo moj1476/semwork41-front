@@ -1,7 +1,6 @@
 .wrapper {
     background-color: var(--bg-black);
     color: var(--text-white);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;

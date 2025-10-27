@@ -1,0 +1,123 @@
+.orderDetails {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #2C2C2C;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.summaryItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.summaryItem span {
+    color: var(--text-grey, #A0A0A0);
+}
+
+.summaryItem strong {
+    color: var(--text-white, #FFFFFF);
+    font-weight: 500;
+}
+
+.itemsTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-white, #FFFFFF);
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color, #333);
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemName {
+    color: var(--text-grey, #A0A0A0);
+    flex: 2;
+}
+
+.itemPrice {
+    color: var(--text-white, #FFFFFF);
+    font-weight: 500;
+    align-items: center;
+    flex: 1;
+    text-align: right;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #333);
+}
+
+.total span {
+    color: var(--text-grey, #A0A0A0);
+}
+
+.total strong {
+    color: var(--text-white, #FFFFFF);
+    font-weight: 600;
+}
+
+.statusBadge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.orderStatus {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.orderStatus[data-status="processing"] {
+    color: var(--status-processing);
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.orderStatus[data-status="completed"] {
+    color: var(--status-completed);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.orderStatus[data-status="shipped"] {
+    color: var(--status-shipped);
+    background-color: rgba(23, 162, 184, 0.1);
+}
+
+.orderStatus[data-status="pending"] {
+    color: var(--status-pending);
+    background-color: rgba(255, 192, 203, 0.1);
+}
+
+.orderStatus[data-status="cancelled"] {
+    color: var(--delete-red);
+    background-color: rgba(220, 53, 69, 0.1);
+}

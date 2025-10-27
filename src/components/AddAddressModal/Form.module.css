@@ -1,0 +1,81 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-grey, #A0A0A0);
+}
+
+.input {
+    background-color: #2C2C2C;
+    border: 1px solid var(--border-color, #333333);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: var(--text-white, #FFFFFF);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input::placeholder {
+    color: #555;
+}
+
+.input:focus {
+    border-color: var(--primary-blue, #2945FF);
+    box-shadow: 0 0 0 3px rgba(41, 69, 255, 0.3);
+}
+
+.formRow {
+    display: flex;
+    gap: 20px;
+}
+
+.formRow > .inputGroup {
+    flex: 1;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-blue, #2945FF);
+}
+
+.checkboxGroup label {
+    color: var(--text-grey, #A0A0A0);
+    cursor: pointer;
+}
+
+.submitButton {
+    background-color: var(--primary-blue, #2945FF);
+    color: var(--text-white, #FFFFFF);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #1A35D1;
+}

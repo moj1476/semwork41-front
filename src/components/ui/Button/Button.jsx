@@ -6,12 +6,10 @@ const classes = {
     none: s.none
 }
 
-const Button = ({variant, className, children}) => {
-
-
+const Button = ({variant, className, children, ...props}) => {
 
     return (
-        <button className={classes[variant] + " " + className}>
+        <button className={classes[variant] + " " + className} {...props}>
             {children}
         </button>
     );

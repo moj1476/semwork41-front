@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 ol, ul {
     list-style: none;
@@ -71,4 +72,5 @@ body {
     --bg-element: #1A1A1A;
     --status-shipped: #17a2b8;
     --delete-red: #dc3545;
+    --status-pending: pink;
 }
