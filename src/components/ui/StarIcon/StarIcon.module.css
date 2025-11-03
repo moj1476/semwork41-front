@@ -1,0 +1,7 @@
+.interactiveStar {
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.interactiveStar:hover {
+    transform: scale(1.2);
+}

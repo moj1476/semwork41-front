@@ -3,7 +3,8 @@ import styles from './Form.module.css';
 import Modal from "../ui/Modal/Modal.jsx";
 import Input from "../ui/Input/Input.jsx";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
-import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js"; // Общие стили для форм
+import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+import {toast} from "react-toastify";
 
 const AddCardModal = ({ isOpen, onClose }) => {
     const [cardNumber, setCardNumber] = useState();
@@ -22,8 +23,11 @@ const AddCardModal = ({ isOpen, onClose }) => {
                 },
                 true
             ),
-            onSettled: () => {
+            onSuccess: () => {
                 queryClient.invalidateQueries("payments")
+                toast("Карта успешно добавлена", {
+                    type: "success",
+                })
             }
         }
     );

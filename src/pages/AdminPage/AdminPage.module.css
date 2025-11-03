@@ -126,7 +126,7 @@
     transition: background-color 0.2s;
 }
 .actionButton:hover {
-    background-color: #1A35D1;
+    background-color: var(--primary-blue-hover);
 }
 .editButton,
 .deleteButton {

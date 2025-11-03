@@ -48,7 +48,8 @@ const LoginView = ({onSwitch, onClose}) => {
                 <button type="submit" className={styles.submitButton}>Войти</button>
             </form>
             <p className={styles.switchText}>
-                Нет аккаунта? <button onClick={onSwitch} className={styles.switchButton}>Зарегистрироваться</button>
+                Нет аккаунта?
+                <button onClick={onSwitch} className={styles.switchButton}>Зарегистрироваться</button>
             </p>
         </div>
     );

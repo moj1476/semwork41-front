@@ -18,12 +18,12 @@ const OrderDetailsModal = ({ isOpen, onClose, order }) => {
             <div className={styles.orderDetails}>
                 <div className={styles.summary}>
                     <div className={styles.summaryItem}>
-                        <span>Статус</span>
+                        <div>Статус</div>
                         <div className={styles.orderStatus} data-status={order.status.toLowerCase()}>{statuses[order.status]}</div>
                     </div>
                     <div className={styles.summaryItem}>
-                        <span>Адрес доставки</span>
-                        <strong>{order.deliveryAddress.fullAddress}</strong>
+                        <div>Адрес доставки</div>
+                        <div className={styles.summaryItemStrong}>{order.deliveryAddress.fullAddress}</div>
                     </div>
                 </div>
 
@@ -31,15 +31,15 @@ const OrderDetailsModal = ({ isOpen, onClose, order }) => {
                 <div className={styles.itemsList}>
                     {order.items.map((item, index) => (
                         <div key={index} className={styles.item}>
-                            <span className={styles.itemName}>{item.name} (x{item.quantity})</span>
-                            <span className={styles.itemPrice}>{item.price * item.quantity} BYN</span>
+                            <div className={styles.itemName}>{item.name} (x{item.quantity})</div>
+                            <div className={styles.itemPrice}>{item.price * item.quantity} BYN</div>
                         </div>
                     ))}
                 </div>
 
                 <div className={styles.total}>
-                    <span>Итого</span>
-                    <strong>{order.totalPrice} BYN</strong>
+                    <div>Итого</div>
+                    <div className={styles.summaryItemStrong}>{order.totalPrice} BYN</div>
                 </div>
             </div>
         </Modal>

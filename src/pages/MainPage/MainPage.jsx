@@ -6,11 +6,6 @@ import {RoutesPath} from "../../const/const.js";
 import {useNavigate} from "react-router-dom";
 
 const MainPage = () => {
-    const features = [
-        'Индивидуальные сборки ПК',
-        'Комплектующие без "серых" схем',
-        'Честная гарантия 2 года',
-    ];
 
     const navigate = useNavigate();
 
@@ -23,12 +18,18 @@ const MainPage = () => {
                             Соберём <span className={styles.highlight}>производительный</span> ПК под Ваш бюджет и задачи
                         </h1>
                         <ul className={styles.features}>
-                            {features.map((feature) => (
-                                <li key={feature} className={styles.featureItem}>
-                                    <span className={styles.featureIcon}></span>
-                                    {feature}
-                                </li>
-                            ))}
+                            <li className={styles.featureItem}>
+                                <span className={styles.featureIcon}></span>
+                                Индивидуальные сборки ПК
+                            </li>
+                            <li className={styles.featureItem}>
+                                <span className={styles.featureIcon}></span>
+                                Комплектующие без "серых" схем
+                            </li>
+                            <li className={styles.featureItem}>
+                                <span className={styles.featureIcon}></span>
+                                Честная гарантия 2 года
+                            </li>
                         </ul>
                         <p className={styles.description}>
                             Хотите мощный компьютер без тормозов на ближайшие 3-5 лет? Соберём для вас конфигурацию, где каждая деталь идеально сочетается и правильно настроена.

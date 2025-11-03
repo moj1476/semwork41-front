@@ -6,6 +6,7 @@ import OrdersIcon from "../../assets/orders.svg?react"
 import ManageComponents from "../../components/ManageComponents/ManageComponents.jsx";
 import ViewOrders from "../../components/ViewOrders/ViewOrders.jsx";
 import ViewUsers from "../../components/ViewUsers/ViewUsers.jsx";
+import AdminNav from "./AdminNav.jsx";
 
 const AdminPage = () => {
     const [activeTab, setActiveTab] = useState('components');
@@ -19,24 +20,7 @@ const AdminPage = () => {
     return (
         <div className={styles.adminWrapper}>
             <div className={styles.adminContainer}>
-                <aside className={styles.sidebar}>
-                    <div className={styles.adminProfile}>
-                        <div className={styles.avatar}>A</div>
-                        <span className={styles.adminName}>Админ-панель</span>
-                    </div>
-                    <nav className={styles.nav}>
-                        <ul>
-                            {Object.keys(tabs).map(tabKey => (
-                                <li key={tabKey}>
-                                    <button className={`${styles.navButton} ${activeTab === tabKey ? styles.active : ''}`} onClick={() => setActiveTab(tabKey)}>
-                                        <span className={styles.navIcon}>{tabs[tabKey].icon}</span>
-                                        {tabs[tabKey].label}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </aside>
+                <AdminNav setActiveTab={setActiveTab} activeTab={activeTab}  tabs={tabs} />
                 <main className={styles.content}>{tabs[activeTab].component}</main>
             </div>
         </div>

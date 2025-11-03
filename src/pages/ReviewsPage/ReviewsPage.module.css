@@ -48,7 +48,7 @@
 }
 
 .addReviewButton:hover {
-    background-color: #1A35D1;
+    background-color: var(--primary-blue-hover);
 }
 
 .reviewsGrid {
@@ -105,10 +105,6 @@
     font-size: 14px;
 }
 
-.rating {
-    display: flex;
-    gap: 4px;
-}
 
 .reviewText {
     color: var(--text-grey);
@@ -157,9 +153,6 @@
     cursor: not-allowed;
 }
 
-/* ... (все ваши предыдущие стили) ... */
-
-/* --- Стили для модального окна отзыва --- */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -243,14 +236,6 @@
     box-shadow: 0 0 0 3px rgba(41, 69, 255, 0.3);
 }
 
-.interactiveStar {
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-.interactiveStar:hover {
-    transform: scale(1.2);
-}
-
 .modalSubmitButton {
     width: 100%;
     background-color: var(--primary-blue);
@@ -266,7 +251,7 @@
 }
 
 .modalSubmitButton:hover:not(:disabled) {
-    background-color: #1A35D1;
+    background-color: var(--primary-blue-hover);
 }
 
 .modalSubmitButton:disabled {

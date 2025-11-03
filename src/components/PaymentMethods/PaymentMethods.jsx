@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import styles from "../../pages/AccountPage/AccountPage.module.css";
 import AddCardModal from "../AddCardModal/AddCardModal.jsx";
-import {QueryClient, useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+
+import PaymentMethodsItem from "./PaymentMethodsItem.jsx";
+import {toast} from "react-toastify";
 
 const PaymentMethods = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,8 +38,11 @@ const PaymentMethods = () => {
             },
             true
         ),
-        onSettled: () => {
+        onSuccess: () => {
             queryClient.invalidateQueries("payments")
+            toast("Способ оплаты успешно удален", {
+                type: "success",
+            })
         }
     })
 
@@ -53,15 +59,7 @@ const PaymentMethods = () => {
             <div className={styles.cardList}>
                 {
                     !!data && data.map((item) => (
-                        <div className={styles.card} key={item.lastFourDigits}>
-                            <span>{item.cardType} **** **** **** {item.lastFourDigits}</span>
-                            {
-                                item.default && (
-                                    <span className={styles.cardDefault}>Основная</span>
-                                )
-                            }
-                            <button onClick={() => handleDelete(item.id)} className={styles.cardAction}>Удалить</button>
-                        </div>
+                        <PaymentMethodsItem key={item.lastFourDigits} item={item} handleDelete={handleDelete} />
                     ))
                 }
             </div>

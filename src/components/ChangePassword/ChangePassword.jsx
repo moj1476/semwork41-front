@@ -3,6 +3,7 @@ import styles from "../../pages/AccountPage/AccountPage.module.css";
 import {useMutation} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
 import Input from "../ui/Input/Input.jsx";
+import {toast} from "react-toastify";
 
 const ChangePassword = () => {
     const [oldPassword, setOldPassword] = useState();
@@ -10,7 +11,7 @@ const ChangePassword = () => {
     const [confirmPassword, setConfirmPassword] = useState();
     const [localError, setLocalError] = useState("");
 
-    const {mutate, error, isError} = useMutation(
+    const {mutate} = useMutation(
         {
             mutationFn: (data) => apiClient(
                 BASE_URL + API_ENDPOINTS.CHANGE_PASSWORD,
@@ -19,7 +20,17 @@ const ChangePassword = () => {
                     body: JSON.stringify(data),
                 },
                 true
-            )
+            ),
+            onError: (error) => {
+                toast(error.message, {
+                    type: "error",
+                })
+            },
+            onSuccess: () => {
+                toast("Пароль успешно изменен", {
+                    type: "success",
+                })
+            }
         }
     )
 
@@ -54,11 +65,6 @@ const ChangePassword = () => {
                     <label htmlFor="confirm-password">Повторите новый пароль</label>
                     <Input value={confirmPassword} onInput={setConfirmPassword} id="confirm-password" type="password" className={styles.input} />
                 </div>
-                {
-                    isError && (
-                        <p className={styles.errorText}>{error.message}</p>
-                    )
-                }
                 {
                     localError.length > 0 && (
                         <p className={styles.errorText}>{localError}</p>

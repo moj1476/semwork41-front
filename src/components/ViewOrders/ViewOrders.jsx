@@ -2,6 +2,8 @@ import styles from "../../pages/AdminPage/AdminPage.module.css";
 import React from "react";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+import OrderItem from "./OrderItem.jsx";
+import {toast} from "react-toastify";
 
 const ViewOrders = () => {
     const queryClient = useQueryClient();
@@ -17,8 +19,11 @@ const ViewOrders = () => {
                 },
                 true
             ),
-            onSettled: () => {
+            onSuccess: () => {
                 queryClient.invalidateQueries("orders")
+                toast("Статус заказа успешно обновлен", {
+                    type: "success",
+                })
             }
         }
     );
@@ -48,28 +53,7 @@ const ViewOrders = () => {
             <table className={styles.table}>
                 <thead><tr><th>ID Заказа</th><th>Адрес</th><th>Сумма</th><th>Статус</th></tr></thead>
                 <tbody>
-                {!!data && data.map(o => {
-                    return (
-                        <tr key={o.id}>
-                            <td>#{o.id}</td>
-                            <td>{o.deliveryAddress.fullAddress}</td>
-                            <td>{o.totalPrice} BYN</td>
-                            <td>
-                                <select
-                                    className={`${styles.statusSelect} ${styles[o.status]}`}
-                                    value={o.status}
-                                    onChange={(e) => handleStatusChange(o.id, e.target.value)}
-                                >
-                                    <option value="PENDING">В ожидании</option>
-                                    <option value="PROCESSING">В сборке</option>
-                                    <option value="SHIPPED">Отправлен</option>
-                                    <option value="COMPLETED">Выполнен</option>
-                                    <option value="CANCELLED">Отменен</option>
-                                </select>
-                            </td>
-                        </tr>
-                    )
-                })}
+                {!!data && data.map(o => <OrderItem key={o.id} o={o} handleStatusChange={handleStatusChange} />)}
                 </tbody>
             </table>
         </div>

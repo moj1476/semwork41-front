@@ -16,13 +16,13 @@ const OrderItem = ({item}) => {
     return (
         <div className={styles.orderItem}>
             <div>
-                <span className={styles.orderId}>Заказ #{item.id}</span>
+                <div className={styles.orderId}>Заказ #{item.id}</div>
             </div>
             <div className={styles.orderStatus} data-status={item.status.toLowerCase()}>{statuses[item.status]}</div>
             <div className={styles.orderTotal}>{
                 item.totalPrice
             } BYN</div>
-            <a onClick={() => setIsOpen(true)} href="#" className={styles.orderDetails}>Детали</a>
+            <a onClick={() => setIsOpen(true)} className={styles.orderDetails}>Детали</a>
             <OrderDetailsModal order={item} isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </div>
     );

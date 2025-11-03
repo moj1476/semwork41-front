@@ -3,6 +3,8 @@ import styles from '../../pages/AdminPage/AdminPage.module.css';
 import ComponentModal from "../ComponentModal/ComponentModal.jsx";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+import {toast} from "react-toastify";
+import Component from "./Component.jsx";
 
 const ManageComponents = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -36,8 +38,11 @@ const ManageComponents = () => {
                 },
                 true
             ),
-            onSettled: () => {
+            onSuccess: () => {
                 queryClient.invalidateQueries("components")
+                toast("Компонент успешно добавлен", {
+                    type: "success",
+                })
             }
         }
     )
@@ -50,8 +55,11 @@ const ManageComponents = () => {
             },
             true
         ),
-        onSettled: () => {
+        onSuccess: () => {
             queryClient.invalidateQueries("components")
+            toast("Компонент успешно удален", {
+                type: "success",
+            })
         }
     })
 
@@ -64,8 +72,11 @@ const ManageComponents = () => {
             },
             true
         ),
-        onSettled: () => {
+        onSuccess: () => {
             queryClient.invalidateQueries("components")
+            toast("Компонент успешно обновлен", {
+                type: "success",
+            })
         }
     })
 
@@ -79,7 +90,7 @@ const ManageComponents = () => {
     };
 
     const handleDelete = (id) => {
-        deleteComponent(id)
+        deleteComponent({id})
     }
 
     return (
@@ -89,16 +100,18 @@ const ManageComponents = () => {
                 <button className={styles.actionButton} onClick={() => handleOpenModal()}>+ Добавить компонент</button>
             </div>
             <table className={styles.table}>
-                <thead><tr><th>ID</th><th>Категория</th><th>Название</th><th>Цена</th><th>Действия</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Категория</th>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
                 <tbody>
                 {!!data && data.map(c => (
-                    <tr key={c.id}>
-                        <td>{c.id}</td><td>{c.category}</td><td>{c.name}</td><td>{c.price} BYN</td>
-                        <td>
-                            <button className={styles.editButton} onClick={() => handleOpenModal(c)}>Редакт.</button>
-                            <button className={styles.deleteButton} onClick={() => handleDelete(c.id)}>Удалить</button>
-                        </td>
-                    </tr>
+                    <Component key={c.id} handleDelete={handleDelete} handleOpenModal={handleOpenModal} c={c} />
                 ))}
                 </tbody>
             </table>

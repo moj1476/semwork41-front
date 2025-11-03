@@ -3,6 +3,8 @@ import styles from "../../pages/AccountPage/AccountPage.module.css";
 import AddAddressModal from "../AddAddressModal/AddAddressModal.jsx";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+import DeliveryAddressesItem from "./DeliveryAddressesItem.jsx";
+import {toast} from "react-toastify";
 
 const DeliveryAddresses = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,8 +37,11 @@ const DeliveryAddresses = () => {
             },
             true
         ),
-        onSettled: () => {
+        onSuccess: () => {
             queryClient.invalidateQueries("address")
+            toast("Адрес доставки успешно удален", {
+                type: "success",
+            })
         }
     })
 
@@ -53,13 +58,7 @@ const DeliveryAddresses = () => {
             <div className={styles.cardList}>
                 {
                     !!data && data.map((item) => (
-                        <div className={styles.card} key={item.id}>
-                            <div>
-                                <p className={styles.addressTitle}>{item.title}</p>
-                                <p className={styles.addressDetails}>{item.fullAddress}</p>
-                            </div>
-                            <button onClick={() => handleDelete(item.id)} className={styles.cardAction}>Удалить</button>
-                        </div>
+                        <DeliveryAddressesItem item={item} key={item.id} handleDelete={handleDelete} />
                     ))
                 }
             </div>

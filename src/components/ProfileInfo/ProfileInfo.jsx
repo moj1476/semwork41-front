@@ -3,6 +3,7 @@ import styles from "../../pages/AccountPage/AccountPage.module.css";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
 import Input from "../ui/Input/Input.jsx";
+import {toast} from "react-toastify";
 
 const ProfileInfo = () => {
     const [email, setEmail] = useState();
@@ -16,7 +17,7 @@ const ProfileInfo = () => {
         ),
     })
     const queryClient = useQueryClient();
-    const {mutate, isError, error} = useMutation({
+    const {mutate} = useMutation({
         mutationFn: (updatedData) => apiClient(
             BASE_URL + API_ENDPOINTS.CHANGE_USER_PROFILE,
             {
@@ -27,6 +28,11 @@ const ProfileInfo = () => {
         ),
         onSuccess: () => {
             queryClient.invalidateQueries("profile-info");
+        },
+        onError: (error) => {
+            toast(error?.fieldErrors?.[0].message, {
+                type: "error",
+            })
         }
     })
 
@@ -49,15 +55,13 @@ const ProfileInfo = () => {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.inputGroup}>
                     <label htmlFor="email">Email</label>
-                    <Input onInput={setEmail} value={email} id="email" type="email" placeholder="vladislavmoj@example.com" className={styles.input} />
+                    <Input onInput={setEmail} value={email} id="email" type="email" placeholder="mail@example.com" className={styles.input} />
                 </div>
                 <div className={styles.inputGroup}>
                     <label htmlFor="phone">Телефон</label>
                     <Input onInput={setPhone} value={phone} id="phone" type="tel" placeholder="+375 (29) 123-45-67" className={styles.input} />
                 </div>
-                {
-                    isError && <p className={styles.errorText}>Ошибка: {error?.fieldErrors?.[0].message}</p>
-                }
+
                 <button type="submit" className={styles.submitButton}>Сохранить изменения</button>
             </form>
         </div>

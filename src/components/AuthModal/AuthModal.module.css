@@ -12,7 +12,7 @@
     font-weight: 600;
     color: var(--text-white);
     text-align: center;
-    margin: 0 0 10px 0;
+    margin-bottom: 10px;
 }
 
 .errorText {
@@ -30,7 +30,7 @@
     font-size: 16px;
     color: var(--text-grey);
     text-align: center;
-    margin: 0 0 30px 0;
+    margin-bottom: 30px;
 }
 
 .form {
@@ -40,13 +40,12 @@
 }
 
 .input {
-    background-color: #2C2C2C;
+    background-color: var(--bg-grey);
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 15px;
     font-size: 16px;
     color: var(--text-white);
-    outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -59,34 +58,19 @@
     box-shadow: 0 0 0 3px rgba(41, 69, 255, 0.3);
 }
 
-.forgotPassword {
-    color: var(--primary-blue);
-    font-size: 14px;
-    text-decoration: none;
-    text-align: right;
-    margin-top: -5px;
-    transition: text-decoration 0.2s;
-}
-
-.forgotPassword:hover {
-    text-decoration: underline;
-}
-
 .submitButton {
     background-color: var(--primary-blue);
     color: var(--text-white);
-    border: none;
     border-radius: 10px;
     padding: 15px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     margin-top: 15px;
-    transition: background-color 0.2s;
 }
 
 .submitButton:hover {
-    background-color: #1A35D1;
+    background-color: var(--primary-blue-hover);
 }
 
 .switchText {
@@ -96,12 +80,8 @@
 }
 
 .switchButton {
-    background: none;
-    border: none;
     color: var(--primary-blue);
     font-weight: 500;
-    font-size: 1em;
     cursor: pointer;
-    padding: 0;
     text-decoration: underline;
 }

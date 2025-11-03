@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: #2C2C2C;
+    background-color: var(--bg-grey);
     padding: 20px;
     border-radius: 10px;
 }
@@ -19,13 +19,10 @@
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-}
-
-.summaryItem span {
     color: var(--text-grey, #A0A0A0);
 }
 
-.summaryItem strong {
+.summaryItemStrong {
     color: var(--text-white, #FFFFFF);
     font-weight: 500;
 }

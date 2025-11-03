@@ -4,6 +4,7 @@ import Modal from "../ui/Modal/Modal.jsx";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import Input from "../ui/Input/Input.jsx";
 import {API_ENDPOINTS, apiClient, BASE_URL} from "../../api/index.js";
+import {toast} from "react-toastify";
 
 const AddAddressModal = ({ isOpen, onClose }) => {
     const [isDefault, setIsDefault] = useState(false);
@@ -21,8 +22,11 @@ const AddAddressModal = ({ isOpen, onClose }) => {
                 },
                 true
             ),
-            onSettled: () => {
+            onSuccess: () => {
                 queryClient.invalidateQueries("address")
+                toast("Адрес успешно добавлен", {
+                    type: "success",
+                })
             }
         }
     );
